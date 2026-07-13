@@ -1,13 +1,11 @@
 <?php
 /**
  * Template Name: Landing HR Global
- * Description: Landing Công nhận bằng cấp — không dùng header/footer theme.
+ * Description: Landing Công nhận bằng cấp — dùng header/footer của theme HR.
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
-add_filter( 'show_admin_bar', '__return_false' );
 
 // Đường dẫn assets landing
 $hr_dir_fs = trailingslashit( get_stylesheet_directory() ) . 'landing-hr';
@@ -17,28 +15,51 @@ if ( ! is_dir( $hr_dir_fs ) ) {
     $hr_base   = trailingslashit( get_template_directory_uri() ) . 'landing-hr/';
 }
 
-$ver_css = file_exists( $hr_dir_fs . '/styles.css' ) ? filemtime( $hr_dir_fs . '/styles.css' ) : null;
-$ver_js  = file_exists( $hr_dir_fs . '/script.js' ) ? filemtime( $hr_dir_fs . '/script.js' ) : null;
+$ver_css = file_exists( $hr_dir_fs . '/styles.css' ) ? (string) filemtime( $hr_dir_fs . '/styles.css' ) : null;
+$ver_js  = file_exists( $hr_dir_fs . '/script.js' ) ? (string) filemtime( $hr_dir_fs . '/script.js' ) : null;
 
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php the_title(); ?> | <?php bloginfo( 'name' ); ?></title>
-    <meta name="description" content="Chương trình công nhận bằng Cao đẳng/Đại học để làm việc hợp pháp tại Đức với thu nhập 50-70 triệu/tháng. HR Global đồng hành cùng bạn từ hồ sơ đến khi ổn định sự nghiệp." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo esc_url( $hr_base . 'styles.css' ); ?>?v=<?php echo esc_attr( (string) $ver_css ); ?>" />
-    <?php wp_head(); ?>
-    <style>
-      html { margin-top: 0 !important; }
-      body.admin-bar { margin-top: 0 !important; padding-top: 0 !important; }
-      #wpadminbar { display: none !important; }
-    </style>
-</head>
-<body <?php body_class( 'hr-standalone hr-landing-page' ); ?>>
+add_filter(
+    'body_class',
+    static function ( $classes ) {
+        $classes[] = 'hr-landing-page';
+        return $classes;
+    }
+);
+
+// Enqueue trước get_header() để theme in CSS/JS đúng chỗ
+wp_enqueue_style(
+    'hr-landing-fonts',
+    'https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap',
+    array(),
+    null
+);
+wp_enqueue_style(
+    'hr-landing',
+    $hr_base . 'styles.css',
+    array( 'hr-landing-fonts' ),
+    $ver_css
+);
+wp_enqueue_script(
+    'hr-landing',
+    $hr_base . 'script.js',
+    array(),
+    $ver_js,
+    true
+);
+wp_add_inline_script(
+    'hr-landing',
+    'window.HR_LANDING = ' . wp_json_encode(
+        array(
+            'wpApi'        => esc_url_raw( home_url( '/wp-json/wp/v2' ) ),
+            'newsPerPage'  => 100,
+            'newsCategory' => 3,
+        )
+    ) . ';',
+    'before'
+);
+
+get_header();
+?>
 
 <main class="hr-landing" id="hr-landing">
     <!-- ============ 1. HERO ============ -->
@@ -71,7 +92,6 @@ $ver_js  = file_exists( $hr_dir_fs . '/script.js' ) ? filemtime( $hr_dir_fs . '/
     <section class="section problem" id="thuc-trang">
         <div class="container">
             <div class="section-head">
-                <span class="eyebrow">Thực trạng</span>
                 <h2 class="title-oneline">Bằng cấp của bạn có đang bị <span class="text-danger">"lãng phí"</span>?</h2>
             </div>
             <div class="problem-grid">
@@ -99,7 +119,6 @@ $ver_js  = file_exists( $hr_dir_fs . '/script.js' ) ? filemtime( $hr_dir_fs . '/
     <section class="section program" id="chuong-trinh">
         <div class="container">
             <div class="section-head">
-                <span class="eyebrow">Giới thiệu chương trình</span>
                 <h2 class="title-oneline">Tìm hiểu ngay <span class="text-accent">Chương trình công nhận bằng cấp</span></h2>
             </div>
             <div class="program-body">
@@ -1835,26 +1854,17 @@ $ver_js  = file_exists( $hr_dir_fs . '/script.js' ) ? filemtime( $hr_dir_fs . '/
 
 </main>
 
-    <!-- Floating CTA -->
-    <a href="#dang-ky" class="floating-cta">
-        <span class="floating-cta-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 3c2.5 2.2 4 5.2 4 8.5V14l2.5 2.5c.4.4.2 1.1-.4 1.2l-3.1.5-.5 3.1c-.1.6-.8.8-1.2.4L12 19.2l-1.3 1.5c-.4.4-1.1.2-1.2-.4l-.5-3.1-3.1-.5c-.6-.1-.8-.8-.4-1.2L8 14v-2.5C8 8.2 9.5 5.2 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M10 14.5c.5 1.2 1.3 2 2 2.5.7-.5 1.5-1.3 2-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <circle cx="12" cy="9.5" r="1.3" fill="currentColor"/>
-            </svg>
-        </span>
-        Tham gia ngay
-    </a>
+<!-- Floating CTA -->
+<a href="#dang-ky" class="floating-cta">
+    <span class="floating-cta-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3c2.5 2.2 4 5.2 4 8.5V14l2.5 2.5c.4.4.2 1.1-.4 1.2l-3.1.5-.5 3.1c-.1.6-.8.8-1.2.4L12 19.2l-1.3 1.5c-.4.4-1.1.2-1.2-.4l-.5-3.1-3.1-.5c-.6-.1-.8-.8-.4-1.2L8 14v-2.5C8 8.2 9.5 5.2 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M10 14.5c.5 1.2 1.3 2 2 2.5.7-.5 1.5-1.3 2-2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="12" cy="9.5" r="1.3" fill="currentColor"/>
+        </svg>
+    </span>
+    Tham gia ngay
+</a>
 
-<script>
-  window.HR_LANDING = {
-    wpApi: <?php echo wp_json_encode( esc_url_raw( home_url( '/wp-json/wp/v2' ) ) ); ?>,
-    newsPerPage: 100,
-    newsCategory: 3
-  };
-</script>
-<script src="<?php echo esc_url( $hr_base . 'script.js' ); ?>?v=<?php echo esc_attr( (string) $ver_js ); ?>"></script>
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php
+get_footer();

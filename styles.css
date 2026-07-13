@@ -55,6 +55,16 @@ body.hr-standalone {
     font-size: 18.5px;
     line-height: 1.75;
     -webkit-font-smoothing: antialiased;
+    width: 100%;
+    max-width: none;
+    overflow-x: clip;
+}
+
+/* Khi nhúng trong theme WP: tránh theme ép max-width lên vùng landing */
+body.hr-landing-page .hr-landing,
+body.hr-landing-page #hr-landing {
+    width: 100%;
+    max-width: none;
 }
 
 .hr-landing *,
