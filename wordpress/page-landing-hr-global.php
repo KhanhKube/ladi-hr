@@ -309,7 +309,7 @@ get_header();
         <div class="container">
             <div class="section-head">
                 <span class="eyebrow">Đơn hàng mới</span>
-                <h2 class="title-oneline">Nguồn đơn hàng cập nhật liên tục tại HRGlobal</h2>
+                <h2 class="title-oneline">Đơn hàng có sẵn, tuyển sinh liên tục tại HRGlobal</h2>
             </div>
             <div class="jobs-carousel" id="jobsCarousel">
                 <div class="jobs-viewport">
