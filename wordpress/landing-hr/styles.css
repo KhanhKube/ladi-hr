@@ -743,6 +743,7 @@ body.hr-standalone .nav-toggle.open span:nth-child(3) {
     grid-template-columns: repeat(5, 1fr);
     gap: 12px;
     align-items: stretch;
+    grid-auto-rows: 1fr;
 }
 
 .benefits-as-conditions .condition-card {
@@ -750,16 +751,18 @@ body.hr-standalone .nav-toggle.open span:nth-child(3) {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 100%;
     height: 100%;
-    padding: 28px 12px 20px;
+    min-height: 230px;
+    padding: 28px 14px 22px;
+    box-sizing: border-box;
 }
 
 .benefits-as-conditions .condition-card h3 {
     font-size: 17px;
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     line-height: 1.2;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .benefits-as-conditions .condition-card p {
@@ -774,10 +777,13 @@ body.hr-standalone .nav-toggle.open span:nth-child(3) {
 .benefits-as-conditions .benefit-feature .condition-icon {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     width: 42px;
     height: 42px;
+    min-width: 42px;
+    min-height: 42px;
     border-radius: 12px;
+    flex-shrink: 0;
 }
 
 .benefits-as-conditions .benefit-feature .condition-icon svg {
@@ -786,29 +792,39 @@ body.hr-standalone .nav-toggle.open span:nth-child(3) {
 }
 
 .benefits-as-conditions .benefit-stat {
-    font-size: clamp(15px, 1.35vw, 20px) !important;
+    font-size: clamp(14px, 1.15vw, 18px) !important;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.25 !important;
     color: var(--pink) !important;
-    margin: 0 0 8px !important;
-    min-height: 1.3em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 0 0 10px !important;
+    min-height: 2.5em;
     max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .benefits-as-conditions .benefit-desc {
     margin: 0 !important;
-    font-size: clamp(12px, 1.05vw, 14.5px) !important;
-    line-height: 1.35 !important;
+    margin-top: auto !important;
+    font-size: clamp(12px, 1.05vw, 14px) !important;
+    line-height: 1.4 !important;
     color: #44506a !important;
     font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
     max-width: 100%;
-    min-height: 1.35em;
+    width: 100%;
+    min-height: 2.8em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-align: center;
 }
 
 .benefits-as-conditions .benefit-note {
@@ -2295,11 +2311,11 @@ body.hr-standalone .footer-bottom p {
 
     .benefits-as-conditions {
         grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 1fr;
     }
 
-    .benefits-as-conditions .benefit-desc,
-    .benefits-as-conditions .benefit-stat {
-        white-space: nowrap;
+    .benefits-as-conditions .condition-card {
+        min-height: 220px;
     }
 
     .why-grid {
@@ -2575,6 +2591,11 @@ body.hr-standalone .footer-bottom p {
     .condition-card,
     .visa-card {
         padding: 20px 18px;
+    }
+
+    .benefits-as-conditions .condition-card {
+        min-height: 200px;
+        padding: 24px 16px 20px;
     }
 
     .problem-card p,
