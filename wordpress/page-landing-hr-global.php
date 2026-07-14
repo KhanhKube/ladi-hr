@@ -69,21 +69,24 @@ get_header();
             <div class="hero-content">
                 <span class="hero-badge">🇩🇪 Chương trình công nhận bằng cấp tại CHLB Đức</span>
                 <h1 class="hero-title">
-                    Đừng để tấm bằng Cao đẳng / Đại học
-                    <span class="hl">chỉ nằm trong ngăn kéo</span>
+                    <span class="hero-title-line">Đừng để tấm bằng</span>
+                    <span class="hero-title-line hero-title-line--accent">
+                        <span class="hero-title-degree">Cao đẳng / Đại học</span>
+                        <span class="hl">chỉ nằm trong ngăn kéo</span>
+                    </span>
                 </h1>
                 <p class="hero-sub">
                     Mở lối cơ hội làm việc tại Đức với thu nhập
                     <strong>50 – 70 triệu đồng / tháng</strong>
                 </p>
-                <div class="hero-actions">
-                    <a href="#dang-ky" class="btn btn-primary btn-lg">Đánh giá hồ sơ miễn phí</a>
-                </div>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat"><strong>99%</strong><span>Tỷ lệ visa thành công</span></div>
                 <div class="hero-stat"><strong>1000+</strong><span>Học viên thành công tại Đức hàng năm</span></div>
                 <div class="hero-stat"><strong>100+</strong><span>Đối tác tại Đức</span></div>
+            </div>
+            <div class="hero-actions">
+                <a href="#dang-ky" class="btn btn-primary btn-lg">Đánh giá hồ sơ miễn phí</a>
             </div>
         </div>
     </section>
@@ -97,19 +100,19 @@ get_header();
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon">📉</div>
-                    <p>Đi làm nhiều năm nhưng thu nhập <strong>không tương xứng</strong> với năng lực.</p>
+                    <p>Thu nhập <strong>không tương xứng</strong></p>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon">🔀</div>
-                    <p>Làm công việc <strong>trái ngành</strong>, không cần đến bằng đã học.</p>
+                    <p>Làm việc <strong>trái ngành</strong></p>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon">💸</div>
-                    <p>Thu nhập thấp, tăng lương chậm, <strong>khó tích lũy</strong>.</p>
+                    <p>Lương thấp, <strong>khó tích lũy</strong></p>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon">🎯</div>
-                    <p>Muốn tìm công việc <strong>ổn định hơn</strong> với thu nhập tốt hơn.</p>
+                    <p>Thiếu công việc <strong>ổn định</strong></p>
                 </div>
             </div>
         </div>
@@ -123,7 +126,7 @@ get_header();
             </div>
             <div class="program-body">
                 <div class="program-media">
-                    <img src="<?php echo esc_url( $hr_base ); ?>assets/cong-nhan-bang.png" alt="Chương trình Công nhận bằng cấp – Làm việc tại CHLB Đức" />
+                    <img src="<?php echo esc_url( $hr_base ); ?>assets/nenmoi.jpg" alt="Chương trình Công nhận bằng cấp – Làm việc tại CHLB Đức" />
                 </div>
                 <div class="program-text">
                     <p>
@@ -142,11 +145,11 @@ get_header();
                 <div class="visa-grid">
                     <div class="visa-card">
                         <span class="visa-tag">Visa 18B</span>
-                        <p>Công nhận bằng <strong>Đại học</strong> và làm việc tại Đức</p>
+                        <p>Công nhận bằng <strong>Đại học</strong> – làm việc tại Đức</p>
                     </div>
                     <div class="visa-card">
                         <span class="visa-tag">Visa 18A / 16D</span>
-                        <p>Công nhận bằng <strong>nghề</strong> và làm việc tại Đức</p>
+                        <p>Công nhận bằng <strong>nghề</strong> – làm việc tại Đức</p>
                     </div>
                 </div>
             </div>
@@ -169,8 +172,8 @@ get_header();
                             </svg>
                         </div>
                         <h3>Bằng cấp</h3>
-                        <p class="benefit-stat">CĐ / ĐH</p>
-                        <p class="benefit-desc">Tận dụng bằng cấp sang Đức làm việc ngay</p>
+                        <p class="benefit-stat">Cao đẳng / Đại học</p>
+                        <p class="benefit-desc">Dùng bằng cấp làm việc tại Đức</p>
                     </article>
                     <article class="condition-card benefit-feature highlight">
                         <span class="condition-badge">Nổi bật</span>
@@ -183,7 +186,7 @@ get_header();
                         </div>
                         <h3>Thu nhập</h3>
                         <p class="benefit-stat">1.500 – 2.500 EUR</p>
-                        <p class="benefit-desc">Thu nhập ổn định mỗi tháng</p>
+                        <p class="benefit-desc">Thu nhập ổn định hàng tháng</p>
                     </article>
                     <article class="condition-card benefit-feature">
                         <div class="condition-icon" aria-hidden="true">
@@ -194,7 +197,7 @@ get_header();
                         </div>
                         <h3>Phúc lợi</h3>
                         <p class="benefit-stat">Toàn diện</p>
-                        <p class="benefit-desc">Hưởng đầy đủ phúc lợi lao động tại Đức</p>
+                        <p class="benefit-desc">Phúc lợi lao động đầy đủ</p>
                     </article>
                     <article class="condition-card benefit-feature">
                         <div class="condition-icon" aria-hidden="true">
@@ -206,7 +209,7 @@ get_header();
                         </div>
                         <h3>Nghỉ phép</h3>
                         <p class="benefit-stat">20 – 24 ngày</p>
-                        <p class="benefit-desc">Nghỉ phép năm tối thiểu theo luật</p>
+                        <p class="benefit-desc">Nghỉ phép năm theo luật</p>
                     </article>
                     <article class="condition-card benefit-feature highlight">
                         <span class="condition-badge">Nổi bật</span>
@@ -219,7 +222,7 @@ get_header();
                         </div>
                         <h3>Định cư</h3>
                         <p class="benefit-stat">3 – 4 năm</p>
-                        <p class="benefit-desc">Cơ hội xin định cư lâu dài tại Đức</p>
+                        <p class="benefit-desc">Cơ hội định cư lâu dài</p>
                     </article>
                 </div>
             </div>
@@ -231,6 +234,7 @@ get_header();
         <div class="container">
             <div class="section-head">
                 <span class="eyebrow">Điều kiện ứng tuyển</span>
+                <h2 class="title-oneline">Điều kiện tham gia vô cùng đơn giản</h2>
             </div>
             <div class="benefits-grid conditions-as-benefits">
                 <div class="benefit-card">
@@ -260,8 +264,8 @@ get_header();
     <section class="section why" id="vi-sao">
         <div class="container">
             <div class="section-head">
-                <span class="eyebrow">Vì sao chọn HR Global?</span>
-                <h2 class="title-oneline">Mở lối sự nghiệp vững vàng tại Đức</h2>
+                <span class="eyebrow">Mở lối sự nghiệp vững vàng tại Đức</span>
+                <h2 class="title-oneline">Vì sao chọn HR Global?</h2>
             </div>
             <div class="why-layout">
                 <div class="why-media">
@@ -593,23 +597,10 @@ get_header();
                     <li>✓ Bảo mật thông tin tuyệt đối</li>
                 </ul>
             </div>
-            <form class="register-form" id="registerForm" novalidate>
+            <div class="register-form hr-nf-wrap">
                 <h3>Đăng ký tư vấn miễn phí</h3>
-                <div class="field">
-                    <label for="fullname">Họ và tên *</label>
-                    <input type="text" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required />
-                </div>
-                <div class="field">
-                    <label for="phone">Số điện thoại *</label>
-                    <input type="tel" id="phone" name="phone" placeholder="0912 345 678" required />
-                </div>
-                <div class="field">
-                    <label for="major">Bạn đã tốt nghiệp Cao đẳng / Đại học ngành nào?</label>
-                    <input type="text" id="major" name="major" placeholder="VD: Điều dưỡng, Cơ khí, Nấu ăn..." />
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Gửi thông tin</button>
-                <p class="form-note" id="formNote"></p>
-            </form>
+                <?php echo do_shortcode( '[ninja_form id=2]' ); ?>
+            </div>
         </div>
     </section>
 
@@ -1863,7 +1854,7 @@ get_header();
             <circle cx="12" cy="9.5" r="1.3" fill="currentColor"/>
         </svg>
     </span>
-    Tham gia ngay
+    Tư vấn miễn phí
 </a>
 
 <?php

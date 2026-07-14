@@ -293,7 +293,7 @@
         if (nextBtn) nextBtn.addEventListener("click", function () { show(index + 1); });
     })();
 
-    // --- Registration form ---
+    // --- Registration form (demo tĩnh; WordPress dùng Ninja Form id=2) ---
     var form = document.getElementById("registerForm");
     var note = document.getElementById("formNote");
     if (form) {
@@ -303,12 +303,19 @@
             note.className = "form-note";
 
             var name = form.fullname;
+            var email = form.email;
             var phone = form.phone;
+            var address = form.address;
             var valid = true;
 
-            [name, phone].forEach(function (f) { f.classList.remove("invalid"); });
+            [name, email, phone, address].forEach(function (f) { f.classList.remove("invalid"); });
 
             if (!name.value.trim()) { name.classList.add("invalid"); valid = false; }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                email.classList.add("invalid");
+                valid = false;
+            }
 
             var phoneClean = phone.value.replace(/[\s.\-()]/g, "");
             if (!/^(0|\+84)\d{9,10}$/.test(phoneClean)) {
@@ -316,8 +323,10 @@
                 valid = false;
             }
 
+            if (!address.value.trim()) { address.classList.add("invalid"); valid = false; }
+
             if (!valid) {
-                note.textContent = "Vui lòng nhập họ tên và số điện thoại hợp lệ.";
+                note.textContent = "Vui lòng nhập đầy đủ Họ và tên, Email, Số điện thoại và Địa chỉ hợp lệ.";
                 note.classList.add("error");
                 return;
             }
